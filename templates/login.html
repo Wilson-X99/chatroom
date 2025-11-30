@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>带派聊天室 - 登录</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <h2>带派聊天室</h2>
+        <div id="error-message" class="error-message" style="display: none;"></div>
+        
+        <div class="input-group">
+            <label for="nickname">昵称</label>
+            <input type="text" id="nickname" placeholder="请输入您的昵称" autocomplete="off">
+        </div>
+        
+        <div class="input-group">
+            <label for="server">服务器地址</label>
+            <select id="server">
+                {% for server in servers %}
+                <option value="{{ server }}">{{ server }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <button id="login-button" class="login-button">登录</button>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>
